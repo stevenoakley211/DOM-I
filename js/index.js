@@ -49,7 +49,7 @@ nav.forEach(element => {
 });
 console.log(nav)
 
-let cta = document.querySelectorAll('.cta-text')
+let ctaImage = document.getElementById('cta-img')
+ctaImage.setAttribute('src',siteContent.cta["img-src"])
 
-
-console.log(cta)
+console.log(ctaImage)
