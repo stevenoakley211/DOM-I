@@ -38,19 +38,60 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+// let logo = document.getElementById("logo-img");
+// logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-let nav = document.querySelectorAll('a');
-let count = 1;
-nav.forEach(element => {
-  element.textContent = siteContent.nav[`nav-item-${count}`]
-  count ++
-});
-console.log(nav)
+// let nav = document.querySelectorAll('a');
+// let count = 1;
+// nav.forEach(element => {
+//   element.textContent = siteContent.nav[`nav-item-${count}`]
+//   count ++
+// });
+// console.log(nav)
+
+// 
+// let ctaText = document.querySelectorAll('.main-content h4')
+// let mainContentObject =  Object.keys(siteContent["main-content"])
+// let h4Section = mainContentObject.filter(item => item.includes('h4'))
+
+// ctaText.forEach(function(element,index) {
+//   element.textContent = siteContent['main-content'][`${h4Section[index]}`]
+  
+// });
 
 
-let ctaImage = document.getElementById('cta-img')
-ctaImage.setAttribute('src',siteContent.cta["img-src"])
+function jsonInject (indexHTML, jsonKey, includes){
+  let Text = document.querySelectorAll(indexHTML)
+  Text.forEach(function(element, index) {
+     element.textContent = siteContent[jsonKey][`${Object.keys(siteContent[jsonKey]).filter(item => item.includes(includes))[index]}`]
+     console.log(Text)
+})
+}
+jsonInject('nav a','nav','nav')
+jsonInject('.main-content h4','main-content','h4')
+jsonInject('.cta button','cta','button')
+jsonInject('.cta h1','cta','h1');
+jsonInject('.main-content p','main-content','content')
+jsonInject('.contact h4','contact','h4')
+jsonInject('.contact p', 'contact', 'e')
+jsonInject('footer p','footer','c')
 
-console.log(ctaImage)
+function imgFill(source, sourceChild ,target){
+  let imgTag = document.getElementById(target);
+  imgTag.setAttribute('src', siteContent[source][sourceChild])
+}
+imgFill('nav','img-src','logo-img')
+imgFill('cta','img-src','cta-img')
+imgFill('main-content','middle-img-src','middle-img')
+  // let logo = document.getElementById("logo-img");
+  // logo.setAttribute('src', siteContent["nav"]["img-src"])
+// let ctaText = document.querySelectorAll('.main-content h4')
+
+// ctaText.forEach(function(element, index) {
+//   element.textContent = siteContent['main-content'][`${Object.keys(siteContent["main-content"]).filter(item => item.includes('h4'))[index]}`]
+// });
+
+
+// let ctaImage = document.getElementById('cta-img')
+// ctaImage.setAttribute('src',siteContent.cta["img-src"])
+
