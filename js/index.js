@@ -49,6 +49,7 @@ nav.forEach(element => {
 });
 console.log(nav)
 
+
 let ctaImage = document.getElementById('cta-img')
 ctaImage.setAttribute('src',siteContent.cta["img-src"])
 
