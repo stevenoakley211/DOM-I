@@ -37,36 +37,13 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-// let logo = document.getElementById("logo-img");
-// logo.setAttribute('src', siteContent["nav"]["img-src"])
-
-// let nav = document.querySelectorAll('a');
-// let count = 1;
-// nav.forEach(element => {
-//   element.textContent = siteContent.nav[`nav-item-${count}`]
-//   count ++
-// });
-// console.log(nav)
-
-// 
-// let ctaText = document.querySelectorAll('.main-content h4')
-// let mainContentObject =  Object.keys(siteContent["main-content"])
-// let h4Section = mainContentObject.filter(item => item.includes('h4'))
-
-// ctaText.forEach(function(element,index) {
-//   element.textContent = siteContent['main-content'][`${h4Section[index]}`]
-  
-// });
-
-
 function jsonInject (indexHTML, jsonKey, includes){
   let Text = document.querySelectorAll(indexHTML)
   Text.forEach(function(element, index) {
      element.textContent = siteContent[jsonKey][`${Object.keys(siteContent[jsonKey]).filter(item => item.includes(includes))[index]}`]
      console.log(Text)
-})
-}
+})}
+
 jsonInject('nav a','nav','nav')
 jsonInject('.main-content h4','main-content','h4')
 jsonInject('.cta button','cta','button')
@@ -83,15 +60,10 @@ function imgFill(source, sourceChild ,target){
 imgFill('nav','img-src','logo-img')
 imgFill('cta','img-src','cta-img')
 imgFill('main-content','middle-img-src','middle-img')
-  // let logo = document.getElementById("logo-img");
-  // logo.setAttribute('src', siteContent["nav"]["img-src"])
-// let ctaText = document.querySelectorAll('.main-content h4')
 
-// ctaText.forEach(function(element, index) {
-//   element.textContent = siteContent['main-content'][`${Object.keys(siteContent["main-content"]).filter(item => item.includes('h4'))[index]}`]
-// });
-
-
-// let ctaImage = document.getElementById('cta-img')
-// ctaImage.setAttribute('src',siteContent.cta["img-src"])
-
+let linkTag = document.querySelectorAll("a")
+linkTag.forEach(element => {
+  element.setAttribute('style','color:green;')
+});
+let theNav = document.querySelector("nav")
+theNav.appendChild()
